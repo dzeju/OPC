@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LiveCharts;
+using System;
 using System.ComponentModel;
 using System.Threading;
 using System.Windows;
@@ -74,7 +75,6 @@ namespace OPC
                             dataCont.y = Convert.ToInt32(values[1].Value);
                             dataCont.z = Convert.ToInt32(values[2].Value);
                             ChartUpdate((double)dataCont.x, (double)dataCont.y, (double)dataCont.z);
-                            //dataCont.AddToxChart((double)dataCont.x);
                         }));
                         Thread.Sleep(200);
                     }
@@ -90,15 +90,9 @@ namespace OPC
 
         private void ChartUpdate(double x, double y, double z)
         {
-            xChart.Values.Add(x);
-            yChart.Values.Add(y);
-            zChart.Values.Add(z);
-            if (xChart.Values.Count > 60)
-            {
-                xChart.Values.RemoveAt(0);
-                yChart.Values.RemoveAt(0);
-                zChart.Values.RemoveAt(0);
-            }
+            dataCont.AddToxChart(x);
+            dataCont.AddToyChart(y);
+            dataCont.AddTozChart(z);
         }
 
         private void StartBtn_Click(object sender, RoutedEventArgs e)

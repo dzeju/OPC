@@ -7,7 +7,7 @@
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         xmlns:local="clr-namespace:OPC"
         mc:Ignorable="d"
-        Title="MainWindow" Height="650" Width="1000">
+        Title="MainWindow" Height="675" Width="1000">
     <Grid>
 
         <Grid.ColumnDefinitions>
@@ -20,6 +20,7 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
+            <RowDefinition  Height="25"/>
         </Grid.RowDefinitions>
         <!-- <lvc:CartesianChart/> -->
 
@@ -32,22 +33,42 @@
         
         <Button x:Name="StartBtn" Content="Start" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Top" Click="StartBtn_Click" Height="30" Width="60" Margin="5"/>
 
-        <lvc:CartesianChart Grid.Row="1" Grid.ColumnSpan="3">
+        <lvc:CartesianChart Grid.Row="1" Grid.ColumnSpan="3" DisableAnimations="True" >
             <lvc:CartesianChart.Series>
-                <lvc:LineSeries x:Name="xChart" Values="0"/>
+                <lvc:LineSeries x:Name="xCh" Values="{Binding Path=xChart}"  PointGeometry="{x:Null}" />
             </lvc:CartesianChart.Series>
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis MinValue="0" MaxValue="60" Labels=""/>
+            </lvc:CartesianChart.AxisX>
+            <lvc:CartesianChart.AxisY>
+                <lvc:Axis MinValue="-200" MaxValue="200"/>
+            </lvc:CartesianChart.AxisY>
         </lvc:CartesianChart>
-        <lvc:CartesianChart Grid.Row="2" Grid.ColumnSpan="3">
+        
+        <lvc:CartesianChart Grid.Row="2" Grid.ColumnSpan="3" DisableAnimations="True">
             <lvc:CartesianChart.Series>
-                <lvc:LineSeries x:Name="yChart" Values="0"/>
+                <lvc:LineSeries x:Name="yCh" Values="{Binding Path=yChart}" PointGeometry="{x:Null}" />
             </lvc:CartesianChart.Series>
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis MinValue="0" MaxValue="60" Labels=""/>
+            </lvc:CartesianChart.AxisX>
+            <lvc:CartesianChart.AxisY>
+                <lvc:Axis MinValue="-200" MaxValue="200"/>
+            </lvc:CartesianChart.AxisY>
         </lvc:CartesianChart>
-        <lvc:CartesianChart Grid.Row="3" Grid.ColumnSpan="3" >
+        
+        <lvc:CartesianChart Grid.Row="3" Grid.ColumnSpan="3" DisableAnimations="True">
             <lvc:CartesianChart.Series>
-                <lvc:LineSeries x:Name="zChart" Values="0" />
+                <lvc:LineSeries x:Name="zCh" Values="{Binding Path=zChart}" PointGeometry="{x:Null}" />
             </lvc:CartesianChart.Series>
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis MinValue="0" MaxValue="60" Labels=""/>
+            </lvc:CartesianChart.AxisX>
+            <lvc:CartesianChart.AxisY>
+                <lvc:Axis MinValue="-200" MaxValue="200"/>
+            </lvc:CartesianChart.AxisY>
         </lvc:CartesianChart>
 
-        <Label x:Name="statusLbl" Grid.Column="0" Grid.Row="3" Content="Status" VerticalContentAlignment="Bottom"/>
+        <Label x:Name="statusLbl" Grid.Column="0" Grid.Row="4" Content="Status" VerticalContentAlignment="Bottom" Margin="0"/>
     </Grid>
 </Window>
