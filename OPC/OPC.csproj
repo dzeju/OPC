@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <PackageReference Include="LiveCharts.Wpf.NetCore3" Version="0.9.7" />
+    <PackageReference Include="OpenTK.NetStandard" Version="1.0.5.22" />
     <PackageReference Include="TitaniumAS.Opc.Client.NetCore" Version="1.0.2.1" />
   </ItemGroup>
 

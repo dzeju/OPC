@@ -76,7 +76,7 @@ namespace OPC
                             dataCont.z = Convert.ToInt32(values[2].Value);
                             ChartUpdate((double)dataCont.x, (double)dataCont.y, (double)dataCont.z);
                         }));
-                        Thread.Sleep(200);
+                        Thread.Sleep(80);
                     }
                     catch (NotSupportedException en)
                     {
@@ -103,12 +103,22 @@ namespace OPC
                 opcThread = new Thread(OpcConnect);
                 opcThread.Start();
                 statusLbl.Content = "Nawiązano połączenie";
+                StartBtn.Content = "Zamknij";
             }
             else if (opcThread.IsAlive)
             {
                 _continue = false;
                 opcThread.Join();
                 statusLbl.Content = "Zamknięto połączenie";
+                StartBtn.Content = "Start";
+            }
+        }
+
+        private void OpenGLBtn_Click(object sender, RoutedEventArgs e)
+        {
+            using (OpenGLWindow open = new OpenGLWindow(600, 500, "Test", dataCont))
+            {
+                open.Run(60.0);
             }
         }
 

@@ -8,7 +8,7 @@ using LiveCharts.Wpf;
 
 namespace OPC
 {
-    class DataCont : INotifyPropertyChanged
+    public class DataCont : INotifyPropertyChanged
     {
         private int _x;
         private int _y;
