@@ -70,6 +70,6 @@
             </lvc:CartesianChart.AxisY>
         </lvc:CartesianChart>
 
-        <Label x:Name="statusLbl" Grid.Column="0" Grid.Row="4" Content="Status" VerticalContentAlignment="Bottom" Margin="0"/>
+        <Label x:Name="statusLbl" Grid.Column="0" Grid.Row="4" Content="{Binding Path=status}" VerticalContentAlignment="Bottom" Margin="0"/>
     </Grid>
 </Window>

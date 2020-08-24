@@ -22,5 +22,4 @@ C:\Users\kublo\source\repos\OPC\OPC\obj\Debug\netcoreapp3.1\OPC.csproj.CopyCompl
 C:\Users\kublo\source\repos\OPC\OPC\obj\Debug\netcoreapp3.1\OPC.dll
 C:\Users\kublo\source\repos\OPC\OPC\obj\Debug\netcoreapp3.1\OPC.pdb
 C:\Users\kublo\source\repos\OPC\OPC\obj\Debug\netcoreapp3.1\OPC.genruntimeconfig.cache
-C:\Users\kublo\source\repos\OPC\OPC\obj\Debug\netcoreapp3.1\OPC.csprojAssemblyReference.cache
 C:\Users\kublo\source\repos\OPC\OPC\bin\Debug\netcoreapp3.1\OpenTK.dll

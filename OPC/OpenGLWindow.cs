@@ -8,7 +8,8 @@ namespace OPC
 {
     public class OpenGLWindow : GameWindow
     {
-        DataCont dataCont;
+        private DataCont dataCont;
+
         public OpenGLWindow(int width, int height, string title, DataCont _dataCont) : base(width, height, GraphicsMode.Default, title)
         {
             dataCont = _dataCont;
@@ -67,6 +68,7 @@ namespace OPC
 
         private int VertexBufferObject;
         private int VertexArrayObject;
+
         //private System.Single a = 20f;
         private int ElementBufferObject;
 
@@ -160,7 +162,7 @@ namespace OPC
 
             var model = Matrix4.Identity
                         * Matrix4.CreateRotationX((float)MathHelper.DegreesToRadians(dataCont.x))
-                        * Matrix4.CreateRotationZ((float)MathHelper.DegreesToRadians(dataCont.z))
+                        * Matrix4.CreateRotationZ((float)MathHelper.DegreesToRadians(dataCont.z - 45))
                         * Matrix4.CreateRotationY((float)MathHelper.DegreesToRadians(dataCont.y));
 
             shader.SetMatrix4("model", model);

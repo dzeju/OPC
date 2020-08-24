@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using LiveCharts;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using LiveCharts;
-using LiveCharts.Configurations;
-using LiveCharts.Wpf;
 
 namespace OPC
 {
@@ -16,6 +12,17 @@ namespace OPC
         private ChartValues<double> _xChart { get; set; }
         private ChartValues<double> _yChart { get; set; }
         private ChartValues<double> _zChart { get; set; }
+        private string _status { get; set; }
+
+        public string status
+        {
+            get { return _status; }
+            set
+            {
+                _status = value;
+                OnPropertyChanged();
+            }
+        }
 
         public int x
         {
@@ -42,6 +49,7 @@ namespace OPC
                 }
             }
         }
+
         public int z
         {
             get { return _z; }
@@ -59,10 +67,12 @@ namespace OPC
         {
             get { return _xChart; }
         }
+
         public ChartValues<double> yChart
         {
             get { return _yChart; }
         }
+
         public ChartValues<double> zChart
         {
             get { return _zChart; }
@@ -74,12 +84,14 @@ namespace OPC
             if (_xChart.Count > 60)
                 _xChart.RemoveAt(0);
         }
+
         public void AddToyChart(double y)
         {
             _yChart.Add(y);
             if (_yChart.Count > 60)
                 _yChart.RemoveAt(0);
         }
+
         public void AddTozChart(double z)
         {
             _zChart.Add(z);
@@ -92,9 +104,11 @@ namespace OPC
             _xChart = new ChartValues<double>() { 0 };
             _yChart = new ChartValues<double>() { 0 };
             _zChart = new ChartValues<double>() { 0 };
+            _status = "Start";
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
         private void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
